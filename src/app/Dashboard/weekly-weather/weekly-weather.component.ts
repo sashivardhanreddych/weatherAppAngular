@@ -20,7 +20,7 @@ export class WeeklyWeatherComponent implements OnInit {
 
   ngOnInit(): void {
     /**
-     * used to get the products from the api and categorize the products by using services
+     * used to get the Data from the api by using services
      *
      * @params {Object}
      * @returns {Object}
@@ -30,23 +30,20 @@ export class WeeklyWeatherComponent implements OnInit {
       // this.weatherData.forecast = res;
       console.log("checking", this.weatherData.forecast);
       var weeklyWeather = this.weatherData.forecast;
-      let currentDay= this.weatherData.forecast.forecastday[0].date;
-      var dt = new Date(currentDay);
-      let day = this.weekday[dt.getDay()];
+      // let currentDay= this.weatherData.forecast.forecastday[0].date;
+      // var dt = new Date(currentDay);
+      // let day = this.weekday[dt.getDay()];
       // console.log("check day", dt.getDay(), day);
-      // this.grandTotal = this.weatherService.getTotalPrice();
 
 
-      // const dailyWeatherData()={
-
-      // }
+      // To get the forecastday hourlywise data 
       this.weatherData.forecast.forecastday.forEach((a:any) => {
-        // console.log("day", a.hour);
         this.hourlyWeather = a.hour; 
+        let currentDay= a.hour.date;
+        var dt = new Date(currentDay);
         this.hourlyWeather.forEach((b:any) =>{
-          this.hourWeather = b.hour; 
-          console.log("checking hour base", b);
-          return b;
+          this.hourWeather.push(b)
+          let day = this.weekday[dt.getDay()];
         })
       });
     });

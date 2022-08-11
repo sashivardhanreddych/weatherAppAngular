@@ -17,16 +17,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- <tr *ngFor="let item of hourWeather; let i = index"> -->
-                        <tr>
-                            <!-- <td style="width: 15%;">{{item.time}}</td> -->
-                            <td style="width: 15%;"><img style="width: 40px; height:40px; border-radius: 25px;" src="check" alt=""></td>
-                            <td style="width: 15%;">Temp</td>
-                            <td style="width: 15%;">Wind</td>
-                            <td style="width: 15%;">Precip.</td>
-                            <td style="width: 15%;">Cloud</td>
-                            <td style="width: 15%;">Humidity</td>
-                            <td style="width: 15%;">Pressure</td>
+                        <tr *ngFor="let item of hourWeather; let i = index">
+                            <td style="width: 15%;">{{item.time}}</td>
+                            <td style="width: 15%;"><img style="width: 40px; height:40px; border-radius: 25px;" src={{item.condition.icon}} alt=""></td>
+                            <td style="width: 15%;">{{item.temp_c}}<sup>0</sup> C</td>
+                            <td style="width: 15%;">{{item.wind_kph}} kmph</td>
+                            <td style="width: 15%;">{{item.precip_mm}} mm</td>
+                            <td style="width: 15%;">{{item.cloud}}%</td>
+                            <td style="width: 15%;">{{item.humidity}}%</td>
+                            <td style="width: 15%;">{{item.pressure_mb}} mb</td>
                         </tr>
                         <!-- <tr *ngFor="let item of weatherData; let i = index">
                             <td><img style="width: 40px; height:40px; border-radius: 25px;" src="{{item.image}}" alt=""></td>

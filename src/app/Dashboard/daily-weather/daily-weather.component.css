@@ -1,0 +1,21 @@
+.con{
+    height: 100%;
+    min-height: 400px;
+    max-height: 70vh;
+    background: linear-gradient(rgb(8, 134, 245), rgb(53, 58, 62))
+}
+.header{
+    display: flex;
+    flex-direction: row;
+}
+.mainText{
+    font-size:24px;
+    font-weight: 600;
+}
+.spanText {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(164, 205, 196);
+    line-height: 40px;
+    margin-left: 10px;
+}
