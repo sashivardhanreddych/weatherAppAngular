@@ -4,9 +4,23 @@
         <span class="spanText">Andhra Pradesh, India</span>
     </div>
     <div class="con">
-        <div class="part">
-            <h2>check</h2>
-            <img src={{iconImg}} alt="Icon">
+        <div class="part h-50% p-5">
+            <img class="w-30" src={{iconImg}} alt="Icon">
+            <div class="today">
+                <div class="todayTop">
+                    <span style="font-size: 24px">25.8 <sup>0</sup>C </span>&nbsp;&nbsp;
+                    <p class="mainText">Sunday</p>
+                </div>
+                <p class="todayBtm">Light rain shower</p>
+            </div>
+        </div>
+        <div class="downpart p-2">
+            <div class="item m-2 p-3" *ngFor="let item of dayWeather; let i = index">
+                <img style="width: 40px; height:40px; border-radius: 25px;" src={{item.day.condition?.icon}} alt="">
+                <p>{{item.date}}</p>
+                <p>{{item.day.avgtemp_c}}<sup>0</sup>C&nbsp;&nbsp;</p>
+                <p>{{item.day.condition.text}}</p>
+            </div>
         </div>
     </div>
 </div>

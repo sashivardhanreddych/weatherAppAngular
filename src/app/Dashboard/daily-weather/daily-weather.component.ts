@@ -8,8 +8,8 @@ import { WeatherService } from '../../services/weather.service';
 })
 export class DailyWeatherComponent implements OnInit {
   public weatherData: any = [];
-  public todayWeather: any = [];
-  public hourWeather: any = [];
+  public dayWeather: any = [];
+  // public hourWeather: any = [];
   public iconImg: any;
   public weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
@@ -18,17 +18,19 @@ export class DailyWeatherComponent implements OnInit {
   ngOnInit(): void {
     this.weatherService.getData().subscribe((res) => {
       this.weatherData = res;
-      const iconImg = this.weatherData.current.condition.icon;
+      var iconImg = this.weatherData.current.condition.icon;
       console.log("check icon", iconImg);
       console.log("weather", this.weatherData.current);
       // this.weatherData.current?.date.getDay()
       let currentDay= this.weatherData.forecast.forecastday[0].date;
       var dt = new Date(currentDay);
       let day = this.weekday[dt.getDay()];
-      // this.weatherData.current.forEach((a:any) => {
-        // console.log("day", a);
-      //   this.todayWeather = a; 
-      // })
+
+
+      this.weatherData.forecast.forecastday.forEach((a:any) => {
+        console.log("day", a);
+        this.dayWeather.push(a); 
+      })
     })
   }
 
